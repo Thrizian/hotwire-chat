@@ -1,0 +1,15 @@
+%nav#navigation
+  %ul
+    %li>
+      = button_to 'rooms', rooms_path
+    %li>
+      = button_to 'home', '#'
+    %li>
+      = button_to 'home', '#'
+#user-actions
+  - if user_signed_in?
+    = button_to "#{current_user.email.split('@').first}", edit_user_registration_path
+    = button_to "Logout", destroy_user_session_path, method: :delete
+  - else
+    = link_to "Sign up", new_user_registration_path, :class => 'navbar-link'
+    = link_to "Login", new_user_session_path, :class => 'navbar-link'

@@ -1,0 +1,7 @@
+{
+  "imports": {
+    "turbo": "<%= asset_path "turbo" %>",
+    "dayjs": "https://cdn.skypack.dev/dayjs",
+    <%= importmap_list_with_stimulus_from "app/assets/javascripts/controllers", "app/assets/javascripts/libraries" %>
+  }
+}

@@ -1,0 +1,17 @@
+= turbo_stream_from "rooms"
+#index
+  .header
+    %h1 Rooms
+  #notice
+    - if notice
+      %p= notice
+  .thead
+    .column
+      %p= controller_name.singularize + ' Name'
+    .column
+      %p Actions
+  .tbody
+    = turbo_frame_tag 'rooms' do
+      = render partial: 'room', collection: @rooms
+  = turbo_frame_tag "room" do
+    .new= link_to 'New Room', new_room_path

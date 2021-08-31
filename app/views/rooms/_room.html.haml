@@ -1,0 +1,7 @@
+= turbo_frame_tag room do
+  .labels
+    %p= room.name
+  .actions>
+    = link_to 'Show', room, target: '_top'
+    = link_to 'Edit', edit_room_path(room, params: {came_from: 'index'}), target: room
+    = link_to 'Destroy', controller: 'rooms', action: 'delete', id: room, target: 'rooms'

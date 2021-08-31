@@ -1,0 +1,74 @@
+// Shadows
+@mixin box-shadow {
+  -webkit-box-shadow: inset $shadow-values $text;
+  box-shadow: inset $shadow-values $text;
+}
+@mixin shadow-visited {
+  -webkit-box-shadow: inset $shadow-values $shadow-dark;
+  box-shadow: inset $shadow-values $shadow-dark;
+}
+@mixin shadow-hover {
+  -webkit-box-shadow: inset $shadow-values $shadow-light;
+  box-shadow: inset $shadow-values $shadow-light;
+}
+
+// Text
+@mixin link-header-weight {
+  font-weight: $font-weight;
+}
+
+// Text
+@mixin color {
+  color: $text;
+}
+@mixin titles {
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+@mixin padding {
+  padding: 0.5rem;
+}
+
+@mixin button {
+  border:none;
+  text-transform: lowercase;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  @include padding;
+}
+
+@mixin input {
+  @include padding;
+  border: none;
+  border-radius: 5px;
+  // color: lighten($p-color, 10%);
+  // background-color: darken($p-color, 20%);
+}
+
+@mixin trim {
+  padding: 0;
+  margin:0;
+}
+
+@mixin inner-shadow {
+  // -webkit-box-shadow: inset 0px 0px 2px 1px $text;
+  // box-shadow: inset 0px 0px 2px 1px $text;
+  &:hover {
+    @include box-shadow;
+  }
+  &:focus-visible {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    // outline: 1px solid $lighter-10;
+  }
+}
+@mixin shadow {
+  &:hover { @include shadow-hover; }
+}
+
+@mixin border {
+  border-radius: 0.2rem;
+  // border: 1px solid darken($p-color, 20%);
+}

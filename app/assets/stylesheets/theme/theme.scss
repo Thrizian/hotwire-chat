@@ -1,0 +1,58 @@
+
+//@mixin tablify ($columns) {
+//  display: grid;
+//  grid-template-areas:
+//          'thead'
+//          'tbody';
+//  grid-template-rows: 20px 1fr;
+//  grid-template-columns: 1fr;
+//  grid-gap: 0.2em;
+//  background-color: $dark;
+//  .row {
+//    border-bottom: 1px solid $slightly-dark;
+//    display:grid;
+//    align-items: center;
+//    grid-template-columns: repeat(#{$columns}, 1fr);
+//    & > turbo-frame{
+//      display: grid;
+//      align-items: flex-start;
+//      justify-content: space-evenly;
+//      width: 100%;
+//      grid-template-columns: repeat(#{$columns}, 1fr);
+//    }
+//  }
+//  label {
+//    color: $text;
+//  }
+//  .tbody {
+//    grid-area: tbody;
+//    max-height: 700px;
+//    overflow-y: scroll;
+//    margin: 0;
+//    display:flex;
+//    flex-direction: column;
+//    color: $link;
+//  }
+//  .thead {
+//    grid-area: thead;
+//    margin: 0;
+//    width: 100%;
+//    color: $titles;
+//    text-transform: uppercase;
+//    font-weight: bold;
+//    .row {
+//      grid-template-columns: repeat(#{$columns}, 1fr) 1.3em;
+//    }
+//  }
+//  span:not(.actions) {
+//    @include padding;
+//    color: $text;
+//    margin:0;
+//    height:1.5em;
+//  }
+  //span:nth-child(#{$columns}n -1) {
+  //
+  //  @include cell-border;
+  //}
+//
+//}

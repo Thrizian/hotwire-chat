@@ -1,0 +1,131 @@
+/*
+ * Colors
+ * This is the core of the theme, imports first.
+ */
+
+// /* Variables */
+// // Theme colors
+:root {
+  --blood-red: 0, 100%;
+  --bones: 32, 13%;
+  --luminance-1: 7%;
+  --luminance-2: 15%;
+  --luminance-3: 30%;
+  --luminance-4: 40%;
+  --luminance-5: 50%;
+  --luminance-6: 60%;
+  --luminance-7: 70%;
+  --luminance-8: 80%;
+  --luminance-9: 90%;
+  --luminance-A: 95%;
+  --color-blood1: hsl(var(--blood-red),var(--luminance-1));
+  --color-blood2: hsl(var(--blood-red),var(--luminance-2));
+  --color-blood3: hsl(var(--blood-red),var(--luminance-3));
+  --color-blood4: hsl(var(--blood-red),var(--luminance-4));
+  --color-blood5: hsl(var(--blood-red),var(--luminance-5));
+  --color-blood6: hsl(var(--blood-red),var(--luminance-6));
+  --color-blood7: hsl(var(--blood-red),var(--luminance-7));
+  --color-blood8: hsl(var(--blood-red),var(--luminance-8));
+  --color-blood9: hsl(var(--blood-red),var(--luminance-9));
+  --color-bloodA: hsl(var(--blood-red),var(--luminance-A));
+  --color-bones1: hsl(var(--bones),var(--luminance-1));
+  --color-bones2: hsl(var(--bones),var(--luminance-2));
+  --color-bones3: hsl(var(--bones),var(--luminance-3));
+  --color-bones4: hsl(var(--bones),var(--luminance-4));
+  --color-bones5: hsl(var(--bones),var(--luminance-5));
+  --color-bones6: hsl(var(--bones),var(--luminance-6));
+  --color-bones7: hsl(var(--bones),var(--luminance-7));
+  --color-bones8: hsl(var(--bones),var(--luminance-8));
+  --color-bones9: hsl(var(--bones),var(--luminance-9));
+  --color-bonesA: hsl(var(--bones),var(--luminance-A));
+  --color-P0: #003c9e;
+  --color-P10: #0056c7;
+  --color-P20: #006fff;
+  --color-P25: #57a0ff;
+  --color-P30: #46c7fd;
+  --color-P40: #39cc64;
+  --color-P50: #bfe041;
+  --color-P55: #ffdb1a;
+  --color-P60: #f5a623;
+  --color-P70: #f03a3e;
+  --color-P80: #a252e3;
+  --color-P90: #6b34e0;
+  --color-P100: #7e8190;
+  --color-N0: #fffffb;
+  --color-N10: #fbfbfc;
+  --color-N20: #f8f8f9;
+  --color-N30: #f4f4f5;
+  --color-N40: #f1f2f4;
+  --color-N50: #e5e7ed;
+  --color-N60: #d6d9e2;
+  --color-N70: #c2c4ce;
+  --color-BN0: #010a19;
+  --color-BN10: #0b1527;
+  --color-BN20: #101a2b;
+  --color-BN30: #151f30;
+  --color-BN40: #1a2535;
+  --color-BN50: #1f2b3b;
+  --color-bloodT5: rgba(102, 0, 0,.05);
+  --color-bloodT20: rgba(102, 0, 0,.2);
+  --color-bloodT40: rgba(102, 0, 0,.4);
+  --color-bloodT50: rgba(102, 0, 0,.5);
+  --color-success-T40: rgba(57,204,100,.4);
+  --color-danger: #f03a3e;
+  --color-warning: #f5a623;
+  --color-success: #39cc64;
+  --color-primary: hsl(var(--blood-red),var(--luminance-2));
+  --color-text-link: #006fff;
+  --color-text-link-hover: #57a0ff;
+}
+
+/* Application of colors */
+#navigation, .header, #index > #notice { background-color: var(--color-blood1); }
+
+#navigation {
+  border-bottom: 1px solid var(--color-blood3);
+}
+
+.header {
+  color: var(--color-blood3);
+}
+
+.content {
+  background-color: var(--color-bones1);
+}
+
+.tbody {
+  & > turbo-frame {
+    & turbo-frame:nth-child(odd) {
+      background-color: rgba(144, 129, 111, 0.1);
+      background-blend-mode: color-burn;
+    }
+    & turbo-frame:nth-child(even) {
+      & a { background-color: var(--color-bones2); }
+      background-blend-mode: color-burn;
+    }
+  }
+}
+
+body {
+  background-color: var(--color-bones1);
+  color: var(--color-bones5)
+}
+
+#content .tbody a {
+  color: var(--color-bones4);
+  background-color: var(--color-bones2);
+  &:hover {
+    color: var(--color-bones2);
+    background-color: var(--color-bones4);
+  }
+}
+
+#content a,
+.button_to input {
+  color: var(--color-blood6);
+  background-color: var(--color-blood2);
+  &:hover {
+    color: var(--color-blood2);
+    background-color: var(--color-blood6);
+  }
+}

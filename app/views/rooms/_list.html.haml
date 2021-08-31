@@ -1,0 +1,5 @@
+%tr
+  %td= room.name
+  %td= link_to 'Show', room
+  %td= link_to 'Edit', edit_room_path(room, params: {came_from: 'index'})
+  %td= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' }

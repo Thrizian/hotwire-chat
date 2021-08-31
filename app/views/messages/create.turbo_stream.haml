@@ -1,0 +1,4 @@
+-# This is a comment showing how to use turbostreams to enable a fast reload connection.
+   This however does not work together with stimulus because they can duplicate input due to this action being triggered
+   by both the websocket as well as this turbo_stream trigger.
+= turbo_stream.append "messages", @message.decorate

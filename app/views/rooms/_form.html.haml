@@ -1,0 +1,19 @@
+= form_for @room do |f|
+  - if @room.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@room.errors.count, "error")} prohibited this room from being saved:"
+      %ul
+        - @room.errors.full_messages.each do |message|
+          %li= message
+  .single-line-form
+    -if notice
+      #notice= notice
+    = f.label :name
+    = f.text_field :name
+    - if defined?(locals[:came_from])
+      = hidden_field_tag 'came_from', locals[:came_from]
+    .actions
+      - if local_assigns.present? && locals[:came_from] == 'index'
+        = f.submit 'submit', target: 'rooms'
+      - else
+        = f.submit 'submit', target: '_top'

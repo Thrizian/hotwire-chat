@@ -1,0 +1,10 @@
+.button_to input {
+    border-radius: 0;
+    border: none;
+    text-transform: lowercase;
+}
+
+nav .button_to input {
+  height: calc(3rem - 1px);
+  text-transform: uppercase;
+}

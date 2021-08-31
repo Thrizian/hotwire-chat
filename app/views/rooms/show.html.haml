@@ -1,0 +1,15 @@
+.header
+  %h1= @room.name
+#notice= notice
+#show
+  = turbo_frame_tag @room do
+    .labels
+      %span= @room.name
+      -if notice
+        #notice= notice
+    .actions
+      = link_to 'Edit', edit_room_path(@room, params: {came_from: 'show'})
+      = link_to 'Back', rooms_path
+  #messages
+    = render @room.messages
+  = turbo_frame_tag "new_message", src: new_room_message_path(@room), target: '_top'

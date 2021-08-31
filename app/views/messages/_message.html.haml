@@ -1,0 +1,9 @@
+%p.slide-top{id: "#{dom_id message}" }
+  = message.decorate.formatted_for_room
+  %div{'data-controller': "message"}
+  %input{'data-convert-target': "string", type: "text"}
+
+  %button{'data-action': "click->message#convert"}
+    Convert
+
+  %p{'data-convert-target': "output"} iets

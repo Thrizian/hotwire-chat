@@ -1,0 +1,206 @@
+/*
+ * Grids/Flex/Display
+ * This file defines the Grids/Flex/Display properties for the theme.
+ * Should the theme require constraints on height and width, these are also defined here.
+ */
+
+/* Mixins */
+* {
+  box-sizing: border-box
+}
+
+@import 'mixins';
+
+@mixin table-grid($columns) {
+  display:grid;
+  align-items: center;
+  grid-template-columns: repeat(#{$columns}, 1fr)
+}
+
+@mixin margin {
+  margin: 0.5rem 0;
+}
+
+@mixin flexify {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 0.2rem;
+}
+
+#navigation a,
+#content a {
+   padding: 0.3rem;
+}
+
+/* Tags */
+body {
+  display:grid;
+  grid-template-areas:
+    "left-spacer nav x"
+    "left-spacer content user-actions"
+    "left-spacer footer right-spacer";
+  grid-template-columns: 1fr minmax(600px, 80vw) 1fr;
+  grid-template-rows: 3rem 1fr 4rem;
+  grid-gap: 0;
+  #navigation    { grid-area: nav;         };
+  // #left-spacer   { grid-area: left-spacer  };
+  // #right-spacer  { grid-area: right-spacer };
+  #content       { grid-area: content;     };
+  #footer        { grid-area: footer;      };
+  #navigation, #footer, #content {
+    width: 100%;
+  }
+  height: 100vh;
+}
+
+#user-actions {
+  @include flexify;
+  flex-direction: column;
+}
+
+#index {
+  height: 100%;
+  display: grid;
+  grid-template-areas: 'header notice ' 'thead thead' 'tbody tbody' 'new new';
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 3rem 2rem max-content 1fr;
+  #notice { grid-area: notice; }
+  .header { grid-area: header; }
+  .thead  { grid-area: thead; display: flex; gap: 1rem }
+  .new    { grid-area: new;    }
+  .tbody  { grid-area: tbody;  }
+
+  .column {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+}
+
+#content {
+  background-image: url('angel.png');
+  background-repeat: no-repeat;
+  background-blend-mode: color-burn;
+  background-color: var(--color-bones1);
+  background-size: contain;
+}
+
+.header, #notice {
+  padding: 0.5rem;
+}
+
+.header, .new {
+  display:flex;
+  align-items: center;
+}
+
+.thead {
+  @include table-grid(2);
+}
+
+.thead {
+  padding: 0.5rem;
+}
+
+.tbody {
+  padding: 0 0 0.5rem 0;
+}
+
+.actions, .actions > turbo-frame {
+  @include flexify;
+  justify-content: flex-start;
+  height: max-content;
+}
+
+.tbody .actions, .tbody .actions > turbo-frame {
+  @include padding;
+}
+.tbody {
+  & > turbo-frame {
+    turbo-frame {
+      display: grid;
+      align-items: center;
+      grid-template-columns: 1fr 1fr;
+      width: 100%;    
+    }
+  }
+  .labels { padding: 0.5rem; }
+}
+
+p { margin: 0; }
+
+#navigation {
+  @include flexify;
+  justify-content: space-between;
+  height: 3rem;
+  > ul {
+    flex-grow: 12;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    li {
+      list-style: none;
+      @include trim;
+      height: 3rem;
+      a { 
+        height: 3rem;
+        vertical-align: middle;
+        padding: 0 0.5rem;
+      }
+    }
+  }
+}
+
+.single-line-form > * {
+  display:inline-block;
+}
+
+#footer {
+  display:flex;
+  justify-content:center;
+}
+
+@media (max-width: 1000px) {
+  body {
+    grid-template-areas:  "nav"
+                          "user-actions"
+                          "content"
+                          "footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: max-content 2rem 1fr 4rem;
+    padding: initial;
+    height: initial;
+  }
+  #index {
+    grid-template-columns:1fr;
+    grid-template-rows: max-content;
+    grid-template-areas:
+    'header'
+    'notice'
+    'thead'
+    'tbody'
+    'new';
+  }
+
+  #user-actions {
+    flex-direction: row;
+    justify-content:center;
+    .button_to {
+      width: initial;
+    }
+    input {
+      width: initial;
+    }
+  }
+
+}
+
+@media (max-width: 250px) {
+  .tbody .actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
